@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jglm">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../Necessary libraries/jglm" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../Necessary libraries/jglm" recursive="false" />
+  </library>
+</component>
