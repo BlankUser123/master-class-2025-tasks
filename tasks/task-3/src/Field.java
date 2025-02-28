@@ -44,20 +44,28 @@ public class Field implements GLEventListener {
 
     private void setData(GL2 gl) {
 
-        FloatBuffer positionData = Buffers.newDirectFloatBuffer(new float[]{-0.8f, -0.8f, 0.0f,
-                0.8f, -0.8f, 0.0f,
-                0.0f, 0.8f, 0.0f});
-        FloatBuffer colorData = Buffers.newDirectFloatBuffer(new float[]{1.0f, 0.0f, 0.0f,
-                0.0f, 1.0f, 0.0f,
-                0.0f, 0.0f, 1.0f});
+        FloatBuffer positionData = Buffers.newDirectFloatBuffer(new float[]{
+                -0.8f, -0.8f, 0.0f,  // Ліва нижня вершина
+                0.8f, -0.8f, 0.0f,  // Права нижня вершина
+                0.8f,  0.8f, 0.0f,  // Права верхня вершина
+                -0.8f,  0.8f, 0.0f   // Ліва верхня вершина
+        });
+
+        FloatBuffer colorData = Buffers.newDirectFloatBuffer(new float[]{
+                1.0f, 0.0f, 0.0f,  // Червоний (ліва нижня вершина)
+                0.0f, 1.0f, 0.0f,  // Зелений (права нижня вершина)
+                0.0f, 0.0f, 1.0f,  // Синій (права верхня вершина)
+                1.0f, 1.0f, 0.0f   // Жовтий (ліва верхня вершина)
+        });
+
         IntBuffer vboHandles = IntBuffer.wrap(new int[2]);
         gl.glGenBuffers(2, vboHandles);
         int positionBufferHandle = vboHandles.get(0);
         int colorBufferHandle = vboHandles.get(1);
         gl.glBindBuffer(GL2.GL_ARRAY_BUFFER, positionBufferHandle);
-        gl.glBufferData(GL2.GL_ARRAY_BUFFER, 9 * 4, positionData, GL2.GL_STATIC_DRAW);
+        gl.glBufferData(GL2.GL_ARRAY_BUFFER, 12 * 4, positionData, GL2.GL_STATIC_DRAW);
         gl.glBindBuffer(GL2.GL_ARRAY_BUFFER, colorBufferHandle);
-        gl.glBufferData(GL2.GL_ARRAY_BUFFER, 9 * 4, colorData, GL2.GL_STATIC_DRAW);
+        gl.glBufferData(GL2.GL_ARRAY_BUFFER, 12 * 4, colorData, GL2.GL_STATIC_DRAW);
         gl.glGenVertexArrays(1, vaoHandle);
         gl.glBindVertexArray(vaoHandle.get(0));
         gl.glEnableVertexAttribArray(0);
@@ -87,8 +95,8 @@ public class Field implements GLEventListener {
             gl.glUniformMatrix4fv(location, 1, false, rotationMatrix.getBuffer());
         }
         gl.glBindVertexArray(vaoHandle.get(0));
-        gl.glDrawArrays(GL2.GL_TRIANGLES, 0, 3);
-        rot -= 0.001f;
+        gl.glDrawArrays(GL2.GL_QUADS, 0, 4);
+        rot -= 0.05f;
     }
 
     @Override
