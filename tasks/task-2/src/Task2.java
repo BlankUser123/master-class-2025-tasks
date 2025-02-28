@@ -22,6 +22,7 @@ public class Task2 extends JFrame {
         getContentPane().add(canvas);
         setSize(getContentPane().getPreferredSize());
         setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FPSAnimator animator = new FPSAnimator(canvas, 300, true);
         animator.start();
     }

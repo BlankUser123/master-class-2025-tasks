@@ -9,16 +9,17 @@ public class Task1 extends JFrame {
 
     Task1() {
 
-        GLProfile profile = GLProfile.get( GLProfile.GL2 );
-        GLCapabilities capabilities = new GLCapabilities( profile );
-        GLCanvas canvas = new GLCanvas( capabilities );
-        canvas.addGLEventListener( new Field() );
-        canvas.setSize( 400, 400 );
-        canvas.setFocusable( true );
-        getContentPane().add( canvas );
-        setSize( getContentPane().getPreferredSize() );
-        setVisible( true );
-        FPSAnimator animator = new FPSAnimator( canvas, 300, true );
+        GLProfile profile = GLProfile.get(GLProfile.GL2);
+        GLCapabilities capabilities = new GLCapabilities(profile);
+        GLCanvas canvas = new GLCanvas(capabilities);
+        canvas.addGLEventListener(new Field());
+        canvas.setSize(400, 400);
+        canvas.setFocusable(true);
+        getContentPane().add(canvas);
+        setSize(getContentPane().getPreferredSize());
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        FPSAnimator animator = new FPSAnimator(canvas, 300, true);
         animator.start();
     }
 

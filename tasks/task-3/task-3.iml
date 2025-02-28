@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Lib_for_shaders" level="project" />
+    <orderEntry type="library" name="jglm1" level="project" />
   </component>
 </module>
