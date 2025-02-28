@@ -15,14 +15,14 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
-/.idea
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+/.idea
 
 ### VS Code ###
 .vscode/
